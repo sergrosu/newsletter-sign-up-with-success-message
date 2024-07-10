@@ -47,17 +47,6 @@ body {
   height: 100%;
 }
 
-/* utilities */
-.hidden {
-  display: none;
-}
-.flow > * + * {
-  margin-top: 1.5rem;
-}
-.flow-small > * + * {
-  margin-top: 0.625rem;
-}
-
 /* general style */
 
 body {
@@ -66,6 +55,27 @@ body {
   font-weight: var(--fw-regular);
   color: var(--clr-neutral-800);
 }
+.button {
+  margin-top: 1.5rem;
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-bold);
+  background-color: var(--clr-neutral-800);
+  border: 0;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 3.5rem;
+  cursor: pointer;
+}
+.button:where(:hover, :focus) {
+  background: linear-gradient(204.47deg, #FF6A3A 0%, #FF527B 100%);
+  box-shadow: 0px 16px 32px rgba(255, 97, 85, 0.5);
+}
+@media (min-width: 58em) {
+  body {
+    background-color: var(--clr-neutral-400);
+  }
+}
+/* subscription style */
 
 @media (max-width: 57.95em) {
   .subscription img {
@@ -97,6 +107,15 @@ body {
 .subscription form {
   margin-top: 2.5rem;
 }
+.subscription .form-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.subscription .error-msg {
+  font-size: var(--fs-200);
+  font-weight: var(--fw-bold);
+  color: var(--clr-primary-400);
+}
 .subscription label {
   display: block;
   font-size: var(--fs-200);
@@ -106,26 +125,18 @@ body {
   margin-top: 0.5rem;
   border: 1px solid rgba(25, 24, 43, 0.25);
   border-radius: 0.5rem;
-
   height: 3.5rem;
   width: 100%;
   padding-left: 1.5rem;
+  cursor: pointer;
 }
-.button {
-  margin-top: 1.5rem;
-  color: var(--clr-neutral-100);
-  font-weight: var(--fw-bold);
-  background-color: var(--clr-neutral-800);
-  border: 0;
-  border-radius: 0.5rem;
-  width: 100%;
-  height: 3.5rem;
+.subscription .error {
+  background: rgba(255, 97, 85, 0.15);
+  border: 1px solid #FF6155;
+  color: #FF6155;
 }
 
 @media (min-width: 58em) {
-  body {
-    background-color: var(--clr-neutral-400);
-  }
   main {
     height: 100%;
     align-content: center;
@@ -149,4 +160,57 @@ body {
   .subscription__content h1 {
     font-size: var(--fs-900);
   }
+}
+
+/* confirmation style */
+
+.confirmation {
+  padding: 0 1.5rem;
+}
+.confirmation .wrapper {
+  margin-top: 9.3125rem;
+}
+.confirmation h2 {
+  margin-top: 2.5rem;
+  font-size: var(--fs-600);
+  line-height: 1;
+}
+.confirmation p {
+  margin-top: 1.5rem;
+}
+.confirmation .button {
+  margin-top: 16.4375rem;
+}
+.confirmation #email-field {
+  font-weight: var(--fw-bold);
+}
+@media (min-width: 58em) {
+  .confirmation {
+    margin: 0 auto;
+    padding: 3rem 4rem 4rem 4rem;
+    background-color: var(--clr-neutral-100);
+    max-width: 31.5rem;
+    box-shadow: 0px 15px 60px rgba(0, 0, 0, 0.25);
+    border-radius: 36px;
+  }
+  .confirmation .wrapper {
+    margin: unset;
+  }
+  .confirmation .button {
+    margin-top: 2.5rem;
+  }
+  .confirmation h2 {
+    font-size: var(--fs-900);
+  }
+}
+
+/* utilities */
+.hidden {
+  display: none !important;
+}
+.flow > * + * {
+  margin-top: 1.5rem;
+}
+.flow-small > * + * {
+  margin-top: 0.625rem;
 }
