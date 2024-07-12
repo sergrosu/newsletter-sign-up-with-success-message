@@ -17,12 +17,12 @@ function handleSubmit(e) {
   const emailAddress = data.email;
   const emailValidated = validateEmail(emailAddress);
 
-  emailValidated ? console.log("valid") : console.log("invalid")
-
   if (emailValidated) {
     emailField.innerText = emailAddress;
     subscription.classList.add("hidden");
+    subscription.setAttribute("aria-hidden", "true");
     confirmation.classList.remove("hidden");
+    confirmation.removeAttribute("aria-hidden");
   } else {
     emailFormField.classList.add("error");
     errorField.innerText = "Valid email required";
@@ -35,9 +35,11 @@ function handleDismiss(e) {
   emailFormField.classList.remove("error");
   errorField.innerText = "";
   subscription.classList.remove("hidden");
+  subscription.removeAttribute("aria-hidden");
   confirmation.classList.add("hidden");
+  confirmation.setAttribute("aria-hidden", "true");
 }
 
 function validateEmail(emailAddress) {
-  return emailAddress.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+  return emailAddress.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 }

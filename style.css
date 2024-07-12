@@ -88,7 +88,7 @@ body {
 .subscription__content {
   margin: 2.5rem 1.5rem;
 }
-.subscription h1 {
+.subscription h2 {
   font-size: var(--fs-600);
 }
 .subscription ul {
@@ -157,7 +157,7 @@ body {
     margin: 4.5rem 0 0 2.5rem;
     width: 376px;
   }
-  .subscription__content h1 {
+  .subscription__content h2 {
     font-size: var(--fs-900);
   }
 }
